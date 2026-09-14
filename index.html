@@ -1,332 +1,650 @@
 <!DOCTYPE html>
-<html lang="kk">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REELS TERMINATOR</title>
 
-  <title>REELS TERMINATOR</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f5f7;
+    color: #111;
+    padding-bottom: 40px;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #111;
-      padding-bottom: 30px;
-    }
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
 
-    .header {
-      background: #111;
-      color: white;
-      padding: 28px 20px;
-      border-radius: 0 0 24px 24px;
-    }
+.header {
+    background: #111;
+    color: white;
+    border-radius: 24px;
+    padding: 28px 22px;
+    margin-bottom: 18px;
+}
 
-    .logo {
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      opacity: 0.7;
-      margin-bottom: 12px;
-    }
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
 
-    .title {
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.1;
-    }
+.subtitle {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: .7;
+}
 
-    .subtitle {
-      margin-top: 10px;
-      color: #bbb;
-      font-size: 14px;
-    }
+.section-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 24px 0 14px;
+}
 
-    .container {
-      padding: 20px;
-    }
+.module {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+}
 
-    .section-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
+.module-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
 
-    .lesson {
-      background: white;
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-      cursor: pointer;
-    }
+.lesson {
+    background: #f5f5f7;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 9px;
+    cursor: pointer;
+    transition: .2s;
+}
 
-    .lesson-number {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 7px;
-    }
+.lesson:active {
+    transform: scale(.98);
+}
 
-    .lesson-title {
-      font-size: 17px;
-      font-weight: 700;
-    }
+.lesson-number {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
 
-    .lesson-description {
-      font-size: 13px;
-      color: #777;
-      margin-top: 7px;
-      line-height: 1.4;
-    }
+.lesson-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+}
 
-    .homework {
-      background: #111;
-      color: white;
-      border-radius: 20px;
-      padding: 20px;
-      margin-top: 28px;
-    }
+.detail {
+    display: none;
+}
 
-    .homework-title {
-      font-size: 19px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
+.back {
+    border: none;
+    background: white;
+    padding: 11px 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
 
-    .homework-text {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #ccc;
-    }
+.detail-card {
+    background: white;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+}
 
-    .lesson-page {
-      display: none;
-    }
+.detail-module {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+}
 
-    .back {
-      display: inline-block;
-      margin-bottom: 20px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-    }
+.detail-title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 850;
+    margin-bottom: 22px;
+}
 
-    .lesson-page h1 {
-      font-size: 27px;
-      margin-bottom: 15px;
-    }
+.content {
+    font-size: 16px;
+    line-height: 1.55;
+}
 
-    .video {
-      background: #111;
-      height: 200px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
+.content p {
+    margin-bottom: 14px;
+}
 
-    .text {
-      background: white;
-      padding: 20px;
-      border-radius: 20px;
-      line-height: 1.6;
-      font-size: 15px;
-    }
+.homework {
+    background: #111;
+    color: white;
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 24px;
+}
 
-    .task {
-      margin-top: 18px;
-      background: #111;
-      color: white;
-      padding: 20px;
-      border-radius: 20px;
-    }
+.homework-title {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
 
-    .task h3 {
-      margin-bottom: 10px;
-    }
-  </style>
+.homework-text {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: .9;
+}
+
+.link-button {
+    display: block;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    border-radius: 13px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.instagram-button {
+    display: block;
+    background: #f1f1f3;
+    color: #111;
+    text-decoration: none;
+    padding: 11px 14px;
+    border-radius: 11px;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.format {
+    border-top: 1px solid #eee;
+    padding: 15px 0 0;
+    margin-top: 15px;
+}
+
+.format-name {
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.small-text {
+    font-size: 13px;
+    color: #777;
+    margin-top: 5px;
+}
+</style>
 </head>
 
 <body>
 
-  <div id="home">
+<div class="container">
 
-    <div class="header">
-      <div class="logo">REELS TERMINATOR</div>
-      <div class="title">Жеке брендті<br>Reels арқылы құр</div>
-      <div class="subtitle">
-        Сабақтарды көр. Тапсырмаларды орында. Контент жаса.
-      </div>
-    </div>
+    <!-- ГЛАВНАЯ -->
+    <div id="home">
 
-    <div class="container">
-
-      <div class="section-title">📚 Сабақтар</div>
-
-      <div class="lesson" onclick="openLesson(1)">
-        <div class="lesson-number">САБАҚ 01</div>
-        <div class="lesson-title">Reels деген не?</div>
-        <div class="lesson-description">
-          Reels арқылы аудитория жинаудың негіздері.
+        <div class="header">
+            <div class="logo">REELS TERMINATOR</div>
+            <div class="subtitle">
+                Личный бренд через Reels
+            </div>
         </div>
-      </div>
 
-      <div class="lesson" onclick="openLesson(2)">
-        <div class="lesson-number">САБАҚ 02</div>
-        <div class="lesson-title">Контент идеялары</div>
-        <div class="lesson-description">
-          Күн сайын видеоға идеяны қайдан алу керек?
-        </div>
-      </div>
+        <div class="section-title">📚 Модули</div>
 
-      <div class="lesson" onclick="openLesson(3)">
-        <div class="lesson-number">САБАҚ 03</div>
-        <div class="lesson-title">Reels сценарийі</div>
-        <div class="lesson-description">
-          Хук, негізгі бөлім және соңын дұрыс құру.
-        </div>
-      </div>
-
-      <div class="lesson" onclick="openLesson(4)">
-        <div class="lesson-number">САБАҚ 04</div>
-        <div class="lesson-title">Түсірілім</div>
-        <div class="lesson-description">
-          Қарапайым телефонмен сапалы видео түсіру.
-        </div>
-      </div>
-
-      <div class="lesson" onclick="openLesson(5)">
-        <div class="lesson-number">САБАҚ 05</div>
-        <div class="lesson-title">Монтаж</div>
-        <div class="lesson-description">
-          Reels-ті тез әрі қызықты монтаждау.
-        </div>
-      </div>
-
-      <div class="lesson" onclick="openLesson(6)">
-        <div class="lesson-number">САБАҚ 06</div>
-        <div class="lesson-title">Жеке бренд</div>
-        <div class="lesson-description">
-          Reels арқылы өзіңді аудиторияға таныту.
-        </div>
-      </div>
-
-      <div class="homework">
-        <div class="homework-title">📝 Үй тапсырмасы</div>
-        <div class="homework-text">
-          Бүгін бір Reels түсір.<br><br>
-          Тақырып: «Менің аудиторияма беретін ең пайдалы кеңесім».
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div id="lessonPage" class="lesson-page">
-
-    <div class="container">
-
-      <div class="back" onclick="goHome()">← Артқа</div>
-
-      <h1 id="lessonTitle"></h1>
-
-      <div class="video">
-        ▶
-      </div>
-
-      <div class="text" id="lessonText"></div>
-
-      <div class="task">
-        <h3>📝 Үй тапсырмасы</h3>
-        <div id="lessonTask"></div>
-      </div>
+        <div id="modules"></div>
 
     </div>
 
-  </div>
+
+    <!-- СТРАНИЦА САБАК -->
+    <div id="lessonPage" class="detail">
+
+        <button class="back" onclick="goHome()">← Барлық сабақтар</button>
+
+        <div class="detail-card">
+
+            <div id="detailModule" class="detail-module"></div>
+
+            <div id="detailTitle" class="detail-title"></div>
+
+            <div id="detailContent" class="content"></div>
+
+            <div id="detailHomework"></div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
-  <script>
+<script>
 
-    const lessons = {
+/* =====================================================
+   📚 КУРС САБАҚТАРЫ
+   ===================================================== */
 
-      1: {
-        title: "Reels деген не?",
-        text: "Reels — аудитория жинаудың ең тиімді форматтарының бірі. Бұл сабақта Reels қалай жұмыс істейтінін және оны жеке бренд үшін қалай қолдануға болатынын үйренесің.",
-        task: "Өзің туралы 3 қызықты факт жаз және солардың біреуіне Reels идея жаса."
-      },
+const modules = [
 
-      2: {
-        title: "Контент идеялары",
-        text: "Контент идеясы ізделмейді — байқалады. Күнделікті өміріңдегі тәжірибе, қателік, нәтиже және ойларыңның өзі контент бола алады.",
-        task: "Кемінде 10 Reels идеясын жаз."
-      },
+{
+    title: "1 Модуль",
 
-      3: {
-        title: "Reels сценарийі",
-        text: "Жақсы Reels алғашқы секундтардан назар аударуы керек. Сондықтан сценарийді хукпен бастап, негізгі ойды беріп, соңында нақты әрекетке шақыр.",
-        task: "Бір Reels үшін хук + негізгі бөлім + CTA жаз."
-      },
+    lessons: [
 
-      4: {
-        title: "Түсірілім",
-        text: "Сапалы видео үшін қымбат камера міндетті емес. Жарық, кадр, дыбыс және адамның энергиясы әлдеқайда маңызды.",
-        task: "Бір Reels түсіріп көр."
-      },
+        {
+            title: "Осы сабақтарды қалай 100% пайда алуға болады. Рилсты не үшін қазір бастау керек?",
 
-      5: {
-        title: "Монтаж",
-        text: "Монтаждың мақсаты — видеоны әдемі қылу ғана емес, көрерменнің назарын ұстап тұру.",
-        task: "Бір Reels-ті монтаждап, дайын нұсқасын сақта."
-      },
+            content: `
+                <p>
+                Бұл сабақта курс сабақтарынан максималды пайда алу және Рилсты не үшін қазір бастау керек екені туралы.
+                </p>
+            `
+        },
 
-      6: {
-        title: "Жеке бренд",
-        text: "Жеке бренд — адамдардың сен туралы ойы. Reels арқылы өзіңнің тәжірибеңді, көзқарасыңды және құндылығыңды тұрақты көрсет.",
-        task: "Өзіңді сипаттайтын 5 тақырып жаз және әрқайсысына бір Reels идея жаса."
-      }
+        {
+            title: "Рилс бастауға кедергілер. Қорқынышты жеңуге арналған техникалар📈",
 
-    };
+            content: `
+                <p>
+                Рилс түсіруге кедергі болатын қорқыныштарды жеңуге арналған техникалар.
+                </p>
+            `
+        },
+
+        {
+            title: "Камераға деген СЕНІМДІЛІК. Қорқынышты жою!🗣️",
+
+            content: `
+                <p>
+                Камера алдында өзіңді еркін ұстау және камераға деген сенімділікті қалыптастыру.
+                </p>
+            `,
+
+            homework: "Видеодағы әр техникаға уақыт бөліп орындау"
+        }
+
+    ]
+},
+
+{
+    title: "2 Модуль",
+
+    lessons: [
+
+        {
+            title: "Распаковка Личности",
+
+            content: `
+                <p><b>Колесо баланса.</b></p>
+
+                <p>
+                Личность ретінде өз ойыңды пікіріңді, қалауыңды, өмірлік историяларымызды ашамыз.
+                </p>
+
+                <p><b>Таблица распаковки</b></p>
+
+                <a class="link-button"
+                   href="https://docs.google.com/spreadsheets/d/1ouRWMjzliGGfJa-KWwS0MKtlRM9mINnPCIBfB1Latfw/edit?gid=0#gid=0"
+                   target="_blank">
+                    📊 Таблица распаковки
+                </a>
+            `,
+
+            homework: "Сұрақтар/ немесе колесо арқылы өзімізге распаковка жасап. Рилсқа 2 апталық яғни 14 видеоға сценарий жазу📝"
+        },
+
+        {
+            title: "2.2 Формат рилс. Өзімізге ыңғайлы формат таңдау👇🏻",
+
+            content: `
+
+                <div class="format">
+                    <div class="format-name">До/ после</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DORPE4UjJcH/?igsh=eDRkejAxOWloeWJx" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">POV</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DOeCbHRjGxq/?igsh=MXIwdm0ybzljOG5rdw==" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">Лайфхаки</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DVNi1HDjOnA/?igsh=bmxwNTB1MzI4em9r" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DVvPHVeDdCe/?igsh=Zmx0MnBtcWJyNHNo" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">Сторителл</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DXtv28SDM5s/?igsh=NXFnbDlpaTFxcTYz" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">Говорящая голова</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DW3yN3gDO1-/?igsh=ejA2dzgweWQxMXgx" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">Обзор</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DXEr1oVtqjd/?igsh=MWM3N2Zjcmk4eHNrNg==" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">Туториал</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DU27eXeiE4n/?igsh=MTk0YXprcWNxdmY5Zw==" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DO6GH8aDGE6/?igsh=NGI1cnlsY2l6d3hn" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">Распаковка</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DVI1l8ajH4-/?igsh=aGFjN2doZWpvcTgw" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DWQssX_jMif/?igsh=cWo3eGN5dW85ajI3" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+
+                <div class="format">
+                    <div class="format-name">Салыстыру</div>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DVtDNXViOvK/?igsh=NHcwbDA4ZWYxbWR6" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                    <a class="instagram-button" href="https://www.instagram.com/reel/DWifX8BCH6q/?igsh=MTdycTNsb3oxeGI1eA==" target="_blank">
+                        Instagram-да көру →
+                    </a>
+                </div>
+            `
+        },
+
+        {
+            title: "Идея табу жолдары. Күніне 7 рилсқа идея қайдан аламыз?",
+
+            content: `
+                <p>
+                Күніне 7 рилсқа идея табу жолдары.
+                </p>
+            `
+        },
+
+        {
+            title: "Идеяны нақты өзімізге бұрып сценарий құру",
+
+            content: `
+                <p>
+                Басқа идеяны өзімізге бейімдеп, өзіміздің тақырыбымызға сәйкес сценарий құру.
+                </p>
+            `,
+
+            homework: "Идеялар қарап соны өзімізге бұрып сценарий жазу"
+        },
+
+        {
+            title: "Сторителлинг структура",
+
+            content: `
+                <p>
+                Сторителлингтің негізгі структурасы.
+                </p>
+            `
+        },
+
+        {
+            title: "Өтімді рилс сценарий. Структура. Аналитика жасау! Атқан рилстарға разбор📈",
+
+            content: `
+                <p>
+                Өтімді рилс сценарийінің структурасы және атқан рилстарға разбор жасау.
+                </p>
+            `
+        }
+
+    ]
+},
+
+{
+    title: "3 Модуль",
+
+    lessons: [
+
+        {
+            title: "Ракурс қою. Өзімізге ыңғайлы ракурспен түсіру🎥",
+
+            content: `
+                <p>
+                Өзіңізге ыңғайлы ракурсты таңдау және дұрыс кадр қою.
+                </p>
+            `
+        },
+
+        {
+            title: "Рилс түсірілімі. Қалай дұрыс түсіру керек",
+
+            content: `
+                <p>
+                Қалай жеңіл сьемка жасаймыз📱
+                </p>
+            `
+        },
+
+        {
+            title: "Монтажға керек приложениялар орнату📲",
+
+            content: `
+                <p>
+                Рилс монтажына қажетті приложенияларды орнату.
+                </p>
+            `
+        },
+
+        {
+            title: "Рилс монтаж. Кадрды кесу, субтитр жазу. Шрифттарды орнату. Музыка таңдау. Видеоны қалай қымбат бояймыз🙌🏻",
+
+            content: `
+                <p>
+                Кадрды кесу, субтитр жазу, шрифттарды орнату, музыка таңдау және видеоны қымбат көрсету.
+                </p>
+
+                <a class="link-button"
+                   href="https://t.me/+j_7NK-jNXCBmZGFi"
+                   target="_blank">
+                    🔤 Қазақша шрифттар
+                </a>
+            `
+        },
+
+        {
+            title: "Сторителл рилс монтажы. ЗКТ🎬",
+
+            content: `
+                <p>
+                Сторителл рилсты монтаждау және ЗКТ.
+                </p>
+            `
+        }
+
+    ]
+},
+
+{
+    title: "4 Модуль",
+
+    lessons: [
+
+        {
+            title: "Рилсты инстаграмға дұрыс салу. Уақыты. Керек настройка",
+
+            content: `
+                <p>
+                Рилсты Instagram-ға дұрыс салу, уақыты және керек настройкалар.
+                </p>
+            `
+        },
+
+        {
+            title: "Пробный рилспен жұмыс",
+
+            content: `
+                <p>
+                Пробный рилспен жұмыс.
+                </p>
+            `
+        }
+
+    ]
+}
+
+];
 
 
-    function openLesson(id) {
+/* =====================================================
+   📚 МОДУЛЬДЕРДІ КӨРСЕТУ
+   ===================================================== */
 
-      document.getElementById("home").style.display = "none";
+const modulesContainer = document.getElementById("modules");
 
-      document.getElementById("lessonPage").style.display = "block";
+modules.forEach((module, moduleIndex) => {
 
-      document.getElementById("lessonTitle").innerText =
-        lessons[id].title;
+    const moduleElement = document.createElement("div");
 
-      document.getElementById("lessonText").innerText =
-        lessons[id].text;
+    moduleElement.className = "module";
 
-      document.getElementById("lessonTask").innerText =
-        lessons[id].task;
+    moduleElement.innerHTML = `
+        <div class="module-title">
+            ${module.title}
+        </div>
+    `;
 
-      window.scrollTo(0, 0);
+    module.lessons.forEach((lesson, lessonIndex) => {
+
+        const lessonElement = document.createElement("div");
+
+        lessonElement.className = "lesson";
+
+        lessonElement.innerHTML = `
+            <div class="lesson-number">
+                Сабақ ${lessonIndex + 1}
+            </div>
+
+            <div class="lesson-title">
+                ${lesson.title}
+            </div>
+        `;
+
+        lessonElement.onclick = () => {
+            openLesson(moduleIndex, lessonIndex);
+        };
+
+        moduleElement.appendChild(lessonElement);
+    });
+
+    modulesContainer.appendChild(moduleElement);
+});
+
+
+/* =====================================================
+   📖 САБАҚТЫ АШУ
+   ===================================================== */
+
+function openLesson(moduleIndex, lessonIndex) {
+
+    const module = modules[moduleIndex];
+    const lesson = module.lessons[lessonIndex];
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("lessonPage").style.display = "block";
+
+    document.getElementById("detailModule").innerText =
+        module.title + " • Сабақ " + (lessonIndex + 1);
+
+    document.getElementById("detailTitle").innerText =
+        lesson.title;
+
+    document.getElementById("detailContent").innerHTML =
+        lesson.content || "";
+
+    const homeworkElement =
+        document.getElementById("detailHomework");
+
+    if (lesson.homework) {
+
+        homeworkElement.innerHTML = `
+            <div class="homework">
+                <div class="homework-title">
+                    📝 Үй тапсырма
+                </div>
+
+                <div class="homework-text">
+                    ${lesson.homework}
+                </div>
+            </div>
+        `;
+
+    } else {
+
+        homeworkElement.innerHTML = "";
+
     }
 
+    window.scrollTo(0, 0);
+}
 
-    function goHome() {
 
-      document.getElementById("lessonPage").style.display = "none";
+/* =====================================================
+   🏠 БАСТЫ БЕТКЕ ҚАЙТУ
+   ===================================================== */
 
-      document.getElementById("home").style.display = "block";
+function goHome() {
 
-      window.scrollTo(0, 0);
-    }
+    document.getElementById("lessonPage").style.display = "none";
+    document.getElementById("home").style.display = "block";
 
-  </script>
+    window.scrollTo(0, 0);
+}
+
+</script>
 
 </body>
 </html>
