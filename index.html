@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>REELS TERMINATOR</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+      padding-bottom: 30px;
+    }
+
+    .header {
+      background: #111;
+      color: white;
+      padding: 28px 20px;
+      border-radius: 0 0 24px 24px;
+    }
+
+    .logo {
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .lesson {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      cursor: pointer;
+    }
+
+    .lesson-number {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 7px;
+    }
+
+    .lesson-title {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .lesson-description {
+      font-size: 13px;
+      color: #777;
+      margin-top: 7px;
+      line-height: 1.4;
+    }
+
+    .homework {
+      background: #111;
+      color: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 28px;
+    }
+
+    .homework-title {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .homework-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    .lesson-page {
+      display: none;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lesson-page h1 {
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .video {
+      background: #111;
+      height: 200px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .text {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .task {
+      margin-top: 18px;
+      background: #111;
+      color: white;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .task h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="home">
+
+    <div class="header">
+      <div class="logo">REELS TERMINATOR</div>
+      <div class="title">Жеке брендті<br>Reels арқылы құр</div>
+      <div class="subtitle">
+        Сабақтарды көр. Тапсырмаларды орында. Контент жаса.
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="section-title">📚 Сабақтар</div>
+
+      <div class="lesson" onclick="openLesson(1)">
+        <div class="lesson-number">САБАҚ 01</div>
+        <div class="lesson-title">Reels деген не?</div>
+        <div class="lesson-description">
+          Reels арқылы аудитория жинаудың негіздері.
+        </div>
+      </div>
+
+      <div class="lesson" onclick="openLesson(2)">
+        <div class="lesson-number">САБАҚ 02</div>
+        <div class="lesson-title">Контент идеялары</div>
+        <div class="lesson-description">
+          Күн сайын видеоға идеяны қайдан алу керек?
+        </div>
+      </div>
+
+      <div class="lesson" onclick="openLesson(3)">
+        <div class="lesson-number">САБАҚ 03</div>
+        <div class="lesson-title">Reels сценарийі</div>
+        <div class="lesson-description">
+          Хук, негізгі бөлім және соңын дұрыс құру.
+        </div>
+      </div>
+
+      <div class="lesson" onclick="openLesson(4)">
+        <div class="lesson-number">САБАҚ 04</div>
+        <div class="lesson-title">Түсірілім</div>
+        <div class="lesson-description">
+          Қарапайым телефонмен сапалы видео түсіру.
+        </div>
+      </div>
+
+      <div class="lesson" onclick="openLesson(5)">
+        <div class="lesson-number">САБАҚ 05</div>
+        <div class="lesson-title">Монтаж</div>
+        <div class="lesson-description">
+          Reels-ті тез әрі қызықты монтаждау.
+        </div>
+      </div>
+
+      <div class="lesson" onclick="openLesson(6)">
+        <div class="lesson-number">САБАҚ 06</div>
+        <div class="lesson-title">Жеке бренд</div>
+        <div class="lesson-description">
+          Reels арқылы өзіңді аудиторияға таныту.
+        </div>
+      </div>
+
+      <div class="homework">
+        <div class="homework-title">📝 Үй тапсырмасы</div>
+        <div class="homework-text">
+          Бүгін бір Reels түсір.<br><br>
+          Тақырып: «Менің аудиторияма беретін ең пайдалы кеңесім».
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div id="lessonPage" class="lesson-page">
+
+    <div class="container">
+
+      <div class="back" onclick="goHome()">← Артқа</div>
+
+      <h1 id="lessonTitle"></h1>
+
+      <div class="video">
+        ▶
+      </div>
+
+      <div class="text" id="lessonText"></div>
+
+      <div class="task">
+        <h3>📝 Үй тапсырмасы</h3>
+        <div id="lessonTask"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    const lessons = {
+
+      1: {
+        title: "Reels деген не?",
+        text: "Reels — аудитория жинаудың ең тиімді форматтарының бірі. Бұл сабақта Reels қалай жұмыс істейтінін және оны жеке бренд үшін қалай қолдануға болатынын үйренесің.",
+        task: "Өзің туралы 3 қызықты факт жаз және солардың біреуіне Reels идея жаса."
+      },
+
+      2: {
+        title: "Контент идеялары",
+        text: "Контент идеясы ізделмейді — байқалады. Күнделікті өміріңдегі тәжірибе, қателік, нәтиже және ойларыңның өзі контент бола алады.",
+        task: "Кемінде 10 Reels идеясын жаз."
+      },
+
+      3: {
+        title: "Reels сценарийі",
+        text: "Жақсы Reels алғашқы секундтардан назар аударуы керек. Сондықтан сценарийді хукпен бастап, негізгі ойды беріп, соңында нақты әрекетке шақыр.",
+        task: "Бір Reels үшін хук + негізгі бөлім + CTA жаз."
+      },
+
+      4: {
+        title: "Түсірілім",
+        text: "Сапалы видео үшін қымбат камера міндетті емес. Жарық, кадр, дыбыс және адамның энергиясы әлдеқайда маңызды.",
+        task: "Бір Reels түсіріп көр."
+      },
+
+      5: {
+        title: "Монтаж",
+        text: "Монтаждың мақсаты — видеоны әдемі қылу ғана емес, көрерменнің назарын ұстап тұру.",
+        task: "Бір Reels-ті монтаждап, дайын нұсқасын сақта."
+      },
+
+      6: {
+        title: "Жеке бренд",
+        text: "Жеке бренд — адамдардың сен туралы ойы. Reels арқылы өзіңнің тәжірибеңді, көзқарасыңды және құндылығыңды тұрақты көрсет.",
+        task: "Өзіңді сипаттайтын 5 тақырып жаз және әрқайсысына бір Reels идея жаса."
+      }
+
+    };
+
+
+    function openLesson(id) {
+
+      document.getElementById("home").style.display = "none";
+
+      document.getElementById("lessonPage").style.display = "block";
+
+      document.getElementById("lessonTitle").innerText =
+        lessons[id].title;
+
+      document.getElementById("lessonText").innerText =
+        lessons[id].text;
+
+      document.getElementById("lessonTask").innerText =
+        lessons[id].task;
+
+      window.scrollTo(0, 0);
+    }
+
+
+    function goHome() {
+
+      document.getElementById("lessonPage").style.display = "none";
+
+      document.getElementById("home").style.display = "block";
+
+      window.scrollTo(0, 0);
+    }
+
+  </script>
+
+</body>
+</html>
