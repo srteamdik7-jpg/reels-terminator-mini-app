@@ -546,6 +546,33 @@ const modules = [
 
 ];
 
+const videoLinks = [
+  [
+    "ouV2-XW7kbo",
+    "AaEyQrBXu40",
+    "chwKMNSsxi8"
+  ],
+  [
+    "",
+    "sZPrXOtHpnU",
+    "ZKtNpuZjwtQ",
+    "ydUFe-plfRE",
+    "0uTnsIVHLzc",
+    "4DDUjElCTMc"
+  ],
+  [
+    "kC8FdLujBoo",
+    "dgFqeZFKP4Y",
+    "jmcHimbBB7U",
+    "oWwcfC_l00U",
+    "P9MoSi6Uh6A"
+  ],
+  [
+    "8U1ObK7vYko",
+    "M2J2mku0LRg"
+  ]
+];
+
 
 /* =====================================================
    📚 МОДУЛЬДЕРДІ КӨРСЕТУ
@@ -610,8 +637,17 @@ function openLesson(moduleIndex, lessonIndex) {
     document.getElementById("detailTitle").innerText =
         lesson.title;
 
-    document.getElementById("detailContent").innerHTML =
-        lesson.content || "";
+    
+const videoId = videoLinks[moduleIndex]?.[lessonIndex];
+const videoHtml = videoId
+  ? `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;margin-bottom:20px;">
+      <iframe src="https://www.youtube.com/embed/${videoId}" title="${lesson.title}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>`
+  : "";
+
+document.getElementById("detailContent").innerHTML =
+    videoHtml + (lesson.content || "");
+
 
     const homeworkElement =
         document.getElementById("detailHomework");
